@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 
 class TodoItem extends Component {
     state = {
-        title:"Enter your todo item here"
+        title:"",
+        placeholder:"Enter text here"
     };
     handleChange = (event) => {
       this.setState({
@@ -14,7 +15,13 @@ class TodoItem extends Component {
 
     render() {
         return (
-            <input type="text" name="todoItemText" value={this.state.title} onChange={this.handleChange} onKeyUp={this.props.keyUp} />
+            <div className="row">
+                <div className="col col-sm-4">
+            <div className="form-group">
+            <input type="text" name="todoItemText" className="form-control" value={this.state.title} onChange={this.handleChange} onKeyUp={this.props.keyUp} placeholder={this.state.placeholder} />
+            </div>
+                </div>
+            </div>
         )
     }
 }

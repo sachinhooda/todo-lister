@@ -6,7 +6,7 @@ class FunctionalPalette extends Component {
 
     render() {
         return (
-            <div className="row">
+            <div className="row justify-content-center">
                 <div className="col col-sm-2">
                        <PaletteButton buttonTypeClass="btn-warning btn-lg" text="clear" clearButtonEvent={this.props.clearButtonEvent}/>
                 </div>

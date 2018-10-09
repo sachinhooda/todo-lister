@@ -31,12 +31,12 @@ class TodoList extends Component {
         const savedTodoItems = [];
 
         this.state.todoItems.forEach((todoItem) => {
-            savedTodoItems.push(<SavedTodoItem text={todoItem} />);
+            savedTodoItems.push(<SavedTodoItem text={todoItem} key={todoItem} />);
         });
 
         return (
-            <div className="row">
-                <div className="col col-sm-8">
+            <div className="row justify-content-center">
+                <div className="col col-sm">
             <TodoItem keyUp={this.handleKeyUp}/>
             {savedTodoItems}
             Total items saved : {this.state.count}

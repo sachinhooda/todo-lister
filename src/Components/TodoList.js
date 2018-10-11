@@ -11,7 +11,7 @@ class TodoList extends Component {
     };
 
     handleKeyUp = (event) => {
-        if(event.keyCode == 13)
+        if(event.keyCode === 13)
             this.setState({
                 count: this.state.count + 1,
                 todoItems : [...this.state.todoItems, event.target.value]

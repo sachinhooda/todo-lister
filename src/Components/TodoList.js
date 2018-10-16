@@ -6,6 +6,7 @@ import FunctionalPalette from "./FunctionalPalette";
 
 class TodoList extends Component {
     state = {
+        value:"",
         todoItems : [],
         count: 0
     };
@@ -13,9 +14,17 @@ class TodoList extends Component {
     handleKeyUp = (event) => {
         if(event.keyCode === 13)
             this.setState({
+                value:"",
                 count: this.state.count + 1,
                 todoItems : [...this.state.todoItems, event.target.value]
             });
+
+    };
+    handleItemValueChanged = (event) => {
+
+        this.setState({
+            value: event.target.value
+        });
 
     };
     handleClearEvent = (event) => {
@@ -37,7 +46,7 @@ class TodoList extends Component {
         return (
             <div className="row justify-content-center">
                 <div className="col col-sm">
-            <TodoItem keyUp={this.handleKeyUp}/>
+            <TodoItem keyUp={this.handleKeyUp} valueChanged={this.handleItemValueChanged} title={this.state.value}/>
             {savedTodoItems}
             Total items saved : {this.state.count}
             <FunctionalPalette clearButtonEvent={this.handleClearEvent}/>

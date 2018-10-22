@@ -16,13 +16,11 @@ class CustomCalendar extends Component {
 
     render() {
         return (
-            <div className="row justify-content-center">
-                <div className="col col-sm-4">
+            <div className="col-sm-6">
                     <div className="form-group">
                     <Calendar onChange={this.handleChange} value={this.state.date}/>
 
                     </div>
-                </div>
             </div>
         )
     }

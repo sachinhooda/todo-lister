@@ -49,3 +49,10 @@ body {
 #login .container #login-row #login-column .login-box #login-form #register-link {
   margin-top: -85px;
 }
+
+.form-control-main {
+  border: 1px solid #12b3d1;
+  max-width: 640px;
+  margin: 30px auto 0;
+  padding: 15px;
+}

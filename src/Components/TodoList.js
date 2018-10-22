@@ -20,6 +20,16 @@ class TodoList extends Component {
             });
 
     };
+    handleItemAdded = (event) => {
+
+            this.setState({
+                value:"",
+                count: this.state.count + 1,
+                todoItems : [...this.state.todoItems, event.target.value]
+            });
+            event.preventDefault();
+
+    };
     handleItemValueChanged = (event) => {
 
         this.setState({
@@ -44,14 +54,14 @@ class TodoList extends Component {
         });
 
         return (
-            <div className="row justify-content-center">
-                <div className="col col-sm">
-            <TodoItem keyUp={this.handleKeyUp} valueChanged={this.handleItemValueChanged} title={this.state.value}/>
+          <>
+
+            <TodoItem itemAdded={this.handleItemAdded} keyUp={this.handleKeyUp} valueChanged={this.handleItemValueChanged} title={this.state.value}/>
             {savedTodoItems}
             Total items saved : {this.state.count}
             <FunctionalPalette clearButtonEvent={this.handleClearEvent}/>
-                </div>
-                </div>
+
+            </>
         )
     }
 }

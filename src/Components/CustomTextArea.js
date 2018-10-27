@@ -7,7 +7,7 @@ class CustomTextArea extends Component {
         return (
             <div className="col-sm-6">
                     <div className="form-group">
-                        <textarea className="form-control" rows="5" id="todoDescription"></textarea>
+                        <textarea name ="todoItemDescription" className="form-control" rows="5" id="todoDescription"></textarea>
                     </div>
             </div>
         )

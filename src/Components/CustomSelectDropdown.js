@@ -7,7 +7,7 @@ class CustomSelectDropdown extends Component {
         return (
             <div className="col-sm-6">
                 <div className="form-group">
-                    <select className="form-control" id="priority_category">
+                    <select className="form-control" id="priority_category" name="todoItemPriorityDropdown">
                         <option>Highest</option>
                         <option>High</option>
                         <option>Medium</option>

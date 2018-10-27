@@ -7,25 +7,23 @@ import FunctionalPalette from "./FunctionalPalette";
 class TodoList extends Component {
     state = {
         value:"",
+        calendarDate:new Date(),
         todoItems : [],
         count: 0
     };
 
-    handleKeyUp = (event) => {
-        if(event.keyCode === 13)
-            this.setState({
-                value:"",
-                count: this.state.count + 1,
-                todoItems : [...this.state.todoItems, event.target.value]
-            });
-
-    };
     handleItemAdded = (event) => {
-
+ const todoItemSchema = {
+     text:this.state.value,
+     description:event.target.elements.todoItemDescription.value,
+        priority:event.target.elements.todoItemPriorityDropdown.value,
+        date: this.state.calendarDate
+ };
+ console.log(todoItemSchema);
             this.setState({
                 value:"",
                 count: this.state.count + 1,
-                todoItems : [...this.state.todoItems, event.target.value]
+                todoItems : [...this.state.todoItems, todoItemSchema]
             });
             event.preventDefault();
 
@@ -34,6 +32,14 @@ class TodoList extends Component {
 
         this.setState({
             value: event.target.value
+        });
+
+    };
+
+    handleCalendarDateChanged = (event) => {
+
+        this.setState({
+            calendarDate: event.target.value
         });
 
     };
@@ -50,13 +56,14 @@ class TodoList extends Component {
         const savedTodoItems = [];
 
         this.state.todoItems.forEach((todoItem) => {
-            savedTodoItems.push(<SavedTodoItem text={todoItem} key={todoItem} />);
+            savedTodoItems.push(<SavedTodoItem text={todoItem.text} key={todoItem} />);
+
         });
 
         return (
           <>
 
-            <TodoItem itemAdded={this.handleItemAdded} keyUp={this.handleKeyUp} valueChanged={this.handleItemValueChanged} title={this.state.value}/>
+            <TodoItem calendarDateChanged={this.handleCalendarDateChanged} itemAdded={this.handleItemAdded}  valueChanged={this.handleItemValueChanged} title={this.state.value}/>
             {savedTodoItems}
             Total items saved : {this.state.count}
             <FunctionalPalette clearButtonEvent={this.handleClearEvent}/>

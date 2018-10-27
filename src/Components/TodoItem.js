@@ -13,10 +13,10 @@ class TodoItem extends Component {
 
                 <form onSubmit={this.props.itemAdded}>
                     <div className="row">
-                    <CustomTextInput title={this.props.title} valueChanged={this.props.valueChanged} keyUp={this.props.keyUp} placeholder="Enter text here"/>
+                    <CustomTextInput title={this.props.title} valueChanged={this.props.valueChanged}  placeholder="Enter text here"/>
                         <CustomSelectDropdown/>
                         <CustomTextArea/>
-                        <CustomCalendar/>
+                        <CustomCalendar dateChanged={this.props.calendarDateChanged}/>
 
 
                     <button type="submit" className="btn btn-primary">Add</button>

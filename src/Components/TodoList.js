@@ -56,7 +56,7 @@ class TodoList extends Component {
         const savedTodoItems = [];
 
         this.state.todoItems.forEach((todoItem) => {
-            savedTodoItems.push(<SavedTodoItem text={todoItem.text} key={todoItem} />);
+            savedTodoItems.push(<SavedTodoItem todoItem={todoItem} key={todoItem} />);
 
         });
 

@@ -36,10 +36,10 @@ class TodoList extends Component {
 
     };
 
-    handleCalendarDateChanged = (event) => {
+    handleCalendarDateChanged = (date) => {
 
         this.setState({
-            calendarDate: event.target.value
+            calendarDate: date
         });
 
     };
@@ -63,7 +63,7 @@ class TodoList extends Component {
         return (
           <>
 
-            <TodoItem calendarDateChanged={this.handleCalendarDateChanged} itemAdded={this.handleItemAdded}  valueChanged={this.handleItemValueChanged} title={this.state.value}/>
+            <TodoItem calendarDateChanged={this.handleCalendarDateChanged} selectedDate={this.state.calendarDate} itemAdded={this.handleItemAdded}  valueChanged={this.handleItemValueChanged} title={this.state.value}/>
             {savedTodoItems}
             Total items saved : {this.state.count}
             <FunctionalPalette clearButtonEvent={this.handleClearEvent}/>

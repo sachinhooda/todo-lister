@@ -7,7 +7,7 @@ class CustomCalendar extends Component {
         return (
             <div className="col-sm-6">
                     <div className="form-group">
-                    <Calendar name="todoItemCalendar" onChange={this.props.dateChanged} value={new Date()}/>
+                    <Calendar name="todoItemCalendar" onChange={this.props.dateChanged} value={this.props.selectedDate} minDate={new Date()}/>
 
                     </div>
             </div>

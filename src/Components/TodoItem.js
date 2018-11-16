@@ -15,12 +15,14 @@ class TodoItem extends Component {
                     <div className="row">
                     <CustomTextInput title={this.props.title} valueChanged={this.props.valueChanged}  placeholder="Enter text here"/>
                         <CustomSelectDropdown/>
+                    </div>
+                        <div className="row">
                         <CustomTextArea/>
-                        <CustomCalendar dateChanged={this.props.calendarDateChanged}/>
-
+                        <CustomCalendar selectedDate={this.props.selectedDate} dateChanged={this.props.calendarDateChanged}/>
+                        </div>
 
                     <button type="submit" className="btn btn-primary">Add</button>
-                    </div>
+
                 </form>
 
                 </div>
